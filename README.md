@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📦 Intérpretes Test
 
-## Getting Started
+Este proyecto sirve para poder hacer reservaciones usando la práctica ROUND ROBIN de Cal.com
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Tecnologías Usadas
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Next.js** – Framework React
+- **TypeScript** – Tipado fuerte
+- **Tailwind CSS** – Estilizado rápido
+- **Shadcn** – Componentes prefabricados
+- **Cal.com API** – Para manejar los horarios y reservas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ⚙️ APIs Utilizadas
 
-## Learn More
+### 👤 `GET /teams/{TEAM_ID}/memberships`
+- **Función:** Obtener usuarios de un team.
+- **Uso:** `getAllMembers()`
 
-To learn more about Next.js, take a look at the following resources:
+### 📅 `GET /slots`
+- **Función:** Obtener horarios disponibles.
+- **Uso:** `getAvailableSlots({ startTime, endTime })`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 📆 `POST /bookings`
+- **Función:** Reservar una cita.
+- **Uso:** `reserveBooking({ eventTypeId, ... })`
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🧠 Hooks Personalizados
 
-## Deploy on Vercel
+### `useAsyncState()`
+- **Responsabilidad:** Hook sencillo para manejar estados asyncronos.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### `useAvailableSlots()`
+- **Responsabilidad:** Llama a la API de disponibilidad, maneja loading y errores.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### `useReserveBooking({ action })`
+- **Responsabilidad:** Hace la reserva y ejecuta una acción al completar (como redirigir o mostrar un toast).
+
+### `useForm()`
+- **Responsabilidad:** Hook sencillo para manejar el estado del formulario (nombre, email, etc.).
+
+---
+
+## 🧩 Lógica General
+
+1. El usuario ingresa sus datos y selecciona una fecha.
+2. Se obtienen los horarios disponibles con `useAvailableSlots`.
+3. Elige un slot → se muestra un `AlertDialog` para confirmar.
+4. Al confirmar, `useReserveBooking` hace la llamada `POST /bookings`.
+5. Se muestra una notificación y se redirige a la vista de horario reservado.
