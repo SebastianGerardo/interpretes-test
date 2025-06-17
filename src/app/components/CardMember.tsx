@@ -10,10 +10,10 @@ export const CardMember = ({ member }: { member: Member }) => {
             </div>
             <div className='flex flex-col'>
                 <h3 className='text-lg font-bold line-clamp-1'>{member.user.name}</h3>
-                <span className='text-xs font-medium px-3 flex items-center gap-x-1 text-gray-500 bg-orange-100 p-1 rounded-full w-max'>
+                {/* <span className='text-xs font-medium px-3 flex items-center gap-x-1 text-gray-500 bg-orange-100 p-1 rounded-full w-max'>
                     <div className='w-2 h-2 rounded-full bg-orange-500'></div>
                     <p className='text-orange-500'>Ocupado</p>
-                </span>
+                </span> */}
                 {/* <span className='text-xs font-medium px-3 flex items-center gap-x-1 text-gray-500 bg-green-100 p-1 rounded-full w-max'>
                     <div className='w-2 h-2 rounded-full bg-green-500'></div>
                     <p className='text-green-500'>Disponible</p>
