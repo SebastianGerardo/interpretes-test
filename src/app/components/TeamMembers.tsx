@@ -6,12 +6,25 @@ export const TeamMembers = async () => {
   const members = await getTeamsMemberships();
 
   return (
-    <div className="flex gap-x-4 justify-between max-w-xl mx-auto mb-4 sticky top-2">
-      {members?.data &&
-        members?.data?.length > 0 &&
-        members?.data?.map((member: Member) => (
-          <CardMember key={member.id} member={member} />
-        ))}
+    <div className="mb-12">
+      <div className="text-center mb-8">
+        <h2 className="text-3xl font-bold text-gray-800 mb-2">
+          Nuestro Equipo
+        </h2>
+        <p className="text-gray-600 max-w-md mx-auto">
+          Profesionales especializados en interpretación listos para ayudarte
+        </p>
+      </div>
+      
+      <div className="relative">
+        <div className="flex gap-4 justify-center flex-wrap max-w-4xl mx-auto">
+          {members?.data &&
+            members?.data?.length > 0 &&
+            members?.data?.map((member: Member) => (
+              <CardMember key={member.id} member={member} />
+            ))}
+        </div>
+      </div>
     </div>
   );
 };

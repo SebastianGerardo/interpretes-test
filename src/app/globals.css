@@ -117,8 +117,26 @@
   body {
     @apply bg-background text-foreground;
   }
-}
-
-.white-card {
-  @apply flex flex-col gap-y-2 max-w-md mx-auto shadow-md p-4 rounded-md bg-white;
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gradient-to-b from-blue-400 to-indigo-500 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply from-blue-500 to-indigo-600;
+  }
 }

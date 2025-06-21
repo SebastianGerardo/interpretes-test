@@ -14,7 +14,7 @@ export const Booking = () => {
   const { isLoading, data, fetchSlots } = useAvailableSlots(form.start, form.start);
 
   return (
-    <article className="space-y-4">
+    <div className="space-y-8">
       <ClientForm
         form={{
           name: form.name || "",
@@ -28,13 +28,13 @@ export const Booking = () => {
         isLoading={isLoading}
       />
 
-      <div className="white-card">
+      <div className="max-w-4xl mx-auto bg-white/90 backdrop-blur-sm shadow-2xl rounded-3xl p-8 border border-white/20">
         <SlotView
           isLoading={isLoading}
           data={data ?? { data: {} }}
           form={{ name: form.name, email: form.email }}
         />
       </div>
-    </article>
+    </div>
   );
 };
