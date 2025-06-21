@@ -26,21 +26,21 @@ export const CardMember = ({ member }: { member: Member }) => {
               </div>
             </div>
             {/* Status indicator */}
-            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-white shadow-sm">
+            {/* <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-white shadow-sm">
               <div className="w-full h-full rounded-full bg-green-400 animate-pulse"></div>
-            </div>
+            </div> */}
           </div>
           
           <div className="flex-1 min-w-0">
             <h3 className="text-lg font-bold text-gray-800 truncate group-hover:text-blue-600 transition-colors duration-300">
               {member.user.name}
             </h3>
-            <div className="flex items-center gap-2 mt-1">
+            {/* <div className="flex items-center gap-2 mt-1">
               <span className="inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 bg-green-100 text-green-700 rounded-full">
                 <div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>
                 Disponible
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
         

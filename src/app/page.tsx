@@ -7,7 +7,6 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       <Toaster position="top-center" richColors />
       
-      {/* Simple Header */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="text-center">
@@ -22,7 +21,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="px-4 py-12">
         <div className="mx-auto max-w-6xl">
           <TeamMembers />
