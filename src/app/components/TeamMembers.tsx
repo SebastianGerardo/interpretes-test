@@ -1,9 +1,9 @@
-import { getAllMembers } from "@/services/membersService";
+import { getTeamsMemberships } from "@/services/members";
 import { CardMember } from "./CardMember";
 import { Member } from "@/types";
 
 export const TeamMembers = async () => {
-  const members = await getAllMembers();
+  const members = await getTeamsMemberships();
 
   return (
     <div className="flex gap-x-4 justify-between max-w-xl mx-auto mb-4 sticky top-2">

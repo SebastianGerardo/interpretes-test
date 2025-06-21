@@ -45,7 +45,6 @@ export const ClientForm = ({
         value={form.email}
         onChange={handleChange}
       />
-      {/* Deshabilita las fechas pasadas */}
       <Input
         label="Fecha de consulta *"
         type="date"

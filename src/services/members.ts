@@ -1,7 +1,7 @@
 import { CAL_BASE_URL, TEAM_ID, TOKEN_CAL } from "./config";
 
-export async function getAllMembers() {
-  const res = await fetch(`${CAL_BASE_URL}/teams/${TEAM_ID}/memberships`, {
+export async function getTeamsMemberships() {
+  const res = await fetch(`${CAL_BASE_URL}/v2/teams/${TEAM_ID}/memberships`, {
     headers: {
       'Authorization': `Bearer ${TOKEN_CAL}`
     }

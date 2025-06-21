@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Slot } from "@/types";
 import { formatHours } from "@/utils";
 import { useState } from "react";
-import { useReserveBooking } from "@/hooks/useReserveBooking";
+import { useCreateBooking } from "@/hooks/useCreateBooking";
 
 export const CardSlot = ({
   item,
@@ -22,7 +22,7 @@ export const CardSlot = ({
   booker: { name: string; email: string };
 }) => {
   const [open, setOpen] = useState(false);
-  const { handleReserve, isLoading } = useReserveBooking({
+  const { handleReserve, isLoading } = useCreateBooking({
     action: () => setOpen(false),
   });
   return (

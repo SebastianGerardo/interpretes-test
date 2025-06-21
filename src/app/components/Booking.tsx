@@ -6,12 +6,12 @@ import { ClientForm } from "./ClientForm";
 
 export const Booking = () => {
   const { form, handleChange } = useForm({
-    name: "Alexys",
-    email: "sebastiangsaleolex27@gmail.com",
+    name: "",
+    email: "",
     start: "",
   });
 
-  const { isLoading, data, fetchSlots } = useAvailableSlots(form.start);
+  const { isLoading, data, fetchSlots } = useAvailableSlots(form.start, form.start);
 
   return (
     <article className="space-y-4">

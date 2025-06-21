@@ -1,23 +1,22 @@
 import { useCallback } from "react";
 import { useRouter } from "next/navigation";
-import { EVENT_TYPE_ID } from "@/services/config";
 import { useAsyncState } from "./useAsyncState";
-import { reserveBooking } from "@/services/bookingsService";
+import { createBooking } from "@/services/bookings";
 import { Booker, BookingResponse, Slot } from "@/types";
+import { EVENT_TYPE_ID } from "@/services/config";
 
-export const useReserveBooking = ({ action }: { action: () => void }) => {
+export const useCreateBooking = ({ action }: { action: () => void }) => {
   const { isLoading, handleAsync } = useAsyncState<{
     data: BookingResponse;
     status: string;
   }>();
   const router = useRouter();
-  const eventTypeId = Number(EVENT_TYPE_ID);
 
   const handleReserve = useCallback(
     (item: Slot, attendee: Booker) => {
       return handleAsync(
-        reserveBooking({
-          eventTypeId,
+        createBooking({
+          eventTypeId: Number(EVENT_TYPE_ID),
           start: item.start,
           attendee,
         })
@@ -39,7 +38,7 @@ export const useReserveBooking = ({ action }: { action: () => void }) => {
           throw error;
         });
     },
-    [action, handleAsync, router, eventTypeId]
+    [action, handleAsync, router]
   );
 
   return { handleReserve, isLoading };
